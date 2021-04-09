@@ -1,5 +1,29 @@
 # MasterMind
-##jeu mastermind en python
+
+## Description : 
+
+...
+
+## Solutions retenues :
+
+Listes aléatoires avec : 
+```python
+[str(randint(1,coul)) for i in range(niv)]
+```
+
+Enumérer des listes avec :
+```python
+for i, v in enumerate(j):
+            if v == code[i]:
+                bien += 1
+                j[i] = "#"
+                code[i] = "*"
+```
+## Cahier journal :
+
+### Avant Mars :
+
+Après recherche d'aide sur internet, je suis tombé sur un code python que j'ai modifié pour pouvoir avoir un code plus court et plus facile a trouver car je ne pose pas de limite de coups pour le joueur. Le voici :
 
 ``` python
 from random import * #on importe la librairie random pour pouvoir avoir un code aléatoire
@@ -34,11 +58,11 @@ def MasterMind(niv= 4, coul = 6):
         print("Bien: {}, Mal: {}".format(bien,mal))
 ```
 
-Le but du projet est de créer une liste aléatoire de chiffre, le joueur doit avec une simple aide concernant le placement des chiffre retrouver les chiffre dans le code ainsi que leur placement. 
+PLusieures recherches ont été faites pour comprendre l'utilisation de la fonction enumerate permettant d'énumérer des objets itérables c'est a dire qui se trouvent dans une liste, ainsi que comment créer une liste aléatoire. On notera cependant un bug (?) faisant que la liste peut contenir des chiffres en double, c'est l'une des raison pour laquelle le nombre de tentatives est illimité, le code devenant beaucoup plus dur a trouver.
 
-PLusieures recherches ont été faites pour comprendre l'utilisation de la fonction enumerate permettant d'énumérer des objets itérables c'est a dire qui se trouvent dans une liste, ainsi que comment créer une liste aléatoire. On notera cependant un bug (?) faisant que la liste peut contenir des chiffres en double.
 
-Mars 2021 : 
+
+### Mars 2021 : 
 
 Changement total de but pour le projet et passage sur tkinter, apprentissage des bases et tentative de réaliser le plateau de jeu ainsi que le menu.
 
@@ -67,7 +91,6 @@ can.create_line(0,213,240,213,fill='black')
 can.create_line(0,266,240,266,fill='black')
 can.create_line(0,320,240,320,fill='black')
 
-c
 
  
     
@@ -79,3 +102,4 @@ def vérifier():
     
 window.mainloop()
 ```
+
