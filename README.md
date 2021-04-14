@@ -18,6 +18,19 @@ for i, v in enumerate(j):
                 bien += 1
                 j[i] = "#"
                 code[i] = "*"
+                
+```
+
+Faire en sorte que le code ne contient pas de doublons du même chiffre.
+```python
+def MasterMind(niv= 4, coul = 6): 
+    
+    #nombre de tentatives qui augmentera au fil des tours
+    c = 1
+    secret = []
+    for i in range(niv):
+        if i not in secret:
+            secret.append(str(randint(1,coul)))
 ```
 ## Cahier journal :
 
