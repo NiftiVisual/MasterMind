@@ -228,7 +228,7 @@ apropos.add_command(label = "Mastermind", command = a_propos)
     
 window.mainloop()
 ```
-Ajout d'une grille pour placer les éléments du jeu sur le canavs (j'ai galérer)
+Ajout d'une grille pour placer les éléments du jeu sur le canvas (j'ai galérer)
 
 ```python
 def create_grid(event=None):
