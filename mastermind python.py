@@ -17,22 +17,22 @@ fenetre.title("Mastermind")
 
 
 
-def MasterMind(niv= 4, coul = 6): 
+def MasterMind():
     print("Vous avez un nombre de 4 chiffre a trouver entre 1 et 6. ATTENTION il peut y avoir des répétitions\n")
-    #nombre de tentatives qui augmentera au fil des tours
+    generer_code()
+    
+def generer_code(niv = 4, coul = 6):
     c = 1
     secret = []
     for i in range(niv):
         if i not in secret:
             secret.append(str(randint(1,coul)))
-    '''secret = [str(randint(1,coul)) for i in range(niv)]''' #code secret a trouver sous forme de liste String
-    #boucle 
     while True : 
         code= list(secret)  #le code a retrouver
         j= list(input("Coup "+ str(c) + " : "))#le code a retrouver
         if len(j) == 0:
             print('PERDU ! ' + "".join(secret))
-            break  #si la réponse du joueur est vide = perdu
+            break
         c+=1
         bien, mal = 0, 0
         for i, v in enumerate(j):
@@ -48,40 +48,13 @@ def MasterMind(niv= 4, coul = 6):
                 code[code.index(v)] = "*"
         print("Bien: {}, Mal: {}".format(bien,mal))
         
-def MasterMind2(niv= 5, coul = 9): 
-    print("Vous avez un nombre de 5 chiffre a trouver entre 1 et 9. ATTENTION il peut y avoir des répétitions\n")
-    #nombre de tentatives qui augmentera au fil des tours
-    c = 1
-    secret = []
-    for i in range(niv):
-        if i not in secret:
-            secret.append(str(randint(1,coul)))
-    '''secret = [str(randint(1,coul)) for i in range(niv)]''' #code secret a trouver sous forme de liste String
-    #boucle 
-    while True : 
-        code= list(secret)  #le code a retrouver
-        j= list(input("Coup "+ str(c) + " : "))#le code a retrouver
-        if len(j) == 0:
-            print('PERDU ! ' + "".join(secret))
-            break #si la réponse du joueur est vide = perdu
-        c+=1
-        bien, mal = 0, 0
-        for i, v in enumerate(j):
-            if v == code[i]:
-                bien += 1
-                j[i] = "#"
-                code[i] = "*"
-        if bien == 5:
-            print("GAGNE ! Tu es vraiment un MASTERMIND")
-        for i,v in enumerate(j):
-            if v in code:
-                mal += 1
-                code[code.index(v)] = "*"
-        print("Bien: {}, Mal: {}".format(bien,mal))
 
-def MasterMind3(niv= 7, coul = 9): 
+
+def MasterMind3(): 
     print("Vous avez un nombre de 7 chiffre a trouver entre 1 et 9. ATTENTION il peut y avoir des répétitions\n")
-    #nombre de tentatives qui augmentera au fil des tours
+    generer_code2()
+    
+def generer_code2(niv= 7, coul = 9):
     c = 1
     secret = []
     for i in range(niv):
@@ -135,8 +108,6 @@ apropos.add_command(label = "Mastermind", command = a_propos)
 b1 = Button(fenetre, text ='mode Facile', command =MasterMind)
 b1.pack(side =TOP, padx =3, pady =3)
 
-b2 = Button(fenetre, text ='mode Intermédiaire', command =MasterMind2)
-b2.pack(side =TOP, padx =7, pady =7)
 
 b3 = Button(fenetre, text ='mode Difficile', command =MasterMind3)
 b3.pack(side =TOP, padx =11, pady =11)
